@@ -25,6 +25,7 @@
     "autoprefixer": "^10.3.3",
     "cypress": "^10.4.0",
     "postcss": "^8.3.6",
+    "prettier": "3.3.3",
     "tailwindcss": "^2.2.9"
   }
 }

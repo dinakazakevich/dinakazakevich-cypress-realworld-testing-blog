@@ -16,7 +16,7 @@ describe("Cypress is just JavaScript", () => {
     cy.request("GET", "http://localhost:3000/api/posts").then((response) => {
       const sortedPosts = (posts) => {
         return posts.sort(
-          (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+          (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
         );
       };
     });
@@ -38,7 +38,7 @@ describe("Cypress is just JavaScript", () => {
     cy.request("GET", "http://localhost:3000/api/posts").then((response) => {
       const sortedPosts = (posts) => {
         return posts.sort(
-          (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf()
+          (a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf(),
         );
       };
     });

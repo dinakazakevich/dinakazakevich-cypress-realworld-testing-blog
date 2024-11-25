@@ -7,7 +7,18 @@
 // commands please read more here:
 // https://on.cypress.io/custom-commands
 // ***********************************************
-//
+
+Cypress.Commands.add("getAllPosts", (method, url) => {
+  cy.request(method, url).then((response) => {
+    return cy.wrap(response.body);
+  });
+});
+
+Cypress.Commands.add("getFirstPost", (method, url) => {
+  cy.request(method, url).then((response) => {
+    return cy.wrap(response.body).its(0);
+  });
+});
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
