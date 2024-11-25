@@ -13,6 +13,12 @@ jobs:
       - name: Install dependencies with Yarn
         run: yarn install
 
+      # Build and start using Yarn with NODE_OPTIONS
+      - name: Build Project
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+        run: yarn build
+
       # Build and start using Yarn
       - name: Cypress run
         uses: cypress-io/github-action@v6
