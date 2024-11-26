@@ -5,7 +5,7 @@ describe("Custom Cypress Commands", () => {
     // Then use this custom command in this test to assert that the length of the posts
     // returned is equal to 2
     cy.getAllPosts("GET", "http://localhost:3000/api/posts").then((posts) => {
-      cy.wrap(posts).its("length").should("eq", "2");
+      cy.wrap(posts).its("length").should("eq", 2);
     });
   });
 
