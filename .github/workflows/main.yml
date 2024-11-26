@@ -8,20 +8,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # Install Yarn and dependencies, cache them correctly
-      - name: Install dependencies with Yarn
-        run: yarn install
-
-      # Build and start using Yarn with NODE_OPTIONS
-      - name: Build Project
-        env:
-          NODE_OPTIONS: --openssl-legacy-provider
-        run: yarn build
-
-      # Build and start using Yarn
+      # Install npm dependencies, cache them correctly
+      # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          build: yarn build
-          start: yarn start
+          build: npm run build
+          start: npm start
