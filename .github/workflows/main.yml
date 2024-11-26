@@ -55,9 +55,12 @@ jobs:
       - name: Wait for app to be ready
         run: npx wait-on http://localhost:3000
 
+      - name: Debug - List files
+        run: ls -R cypress/e2e/Practice/
+
       - name: Run Cypress Tests - Chrome
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
           spec: cypress/e2e/Practice/*.cy.js
-          start: yarn start
+#          start: yarn start
