@@ -6,12 +6,32 @@ jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
+      # Step 1: Checkout code
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
+
+      # Step 2: Set up Node.js with version 16
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Build the application
+      - name: Build the app
+        run: npm run build
+
+      # Step 5: Start the application
+      - name: Start the app
+        run: npm start &
+
+      # Step 6: Wait for the app to be ready
+      - name: Wait for app
+        run: npx wait-on http://localhost:3000
+
+      # Step 7: Run Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        with:
-          build: npm run build
-          start: npm start
